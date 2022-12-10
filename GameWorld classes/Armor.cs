@@ -9,12 +9,14 @@ namespace GameWorld_classes
     internal class Armor
     {
         public string Name { get; set; }
-        public int ArmorValue = 100;                            // возможно лучше через uint
-        public int DmgReductionMultiplier = 2;
+        public int ArmorValue { get; set; }                             // возможно лучше через uint
+        public int DmgReductionMultiplier { get; set; }
 
         public Armor()
         {
-            this.Name = "p250";
+            Name = "white armor";
+            ArmorValue = 100;
+            DmgReductionMultiplier = 2;
         }
 
     }

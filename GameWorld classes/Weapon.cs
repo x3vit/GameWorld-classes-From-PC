@@ -34,8 +34,10 @@ namespace GameWorld_classes
             {
                 Reload();
             }
-
             Ammo--;
+            Console.WriteLine($"{Name} с уроном {Dmg}, осталось патронов в обойме {Ammo}");
+
+           
         }
         private void Reload()
         {

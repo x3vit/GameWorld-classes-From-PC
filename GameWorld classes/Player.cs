@@ -38,7 +38,7 @@ namespace GameWorld_classes
         private void SetDefaultValues()
         {
             HP = 100;
-            Ammo = 100;
+            Ammo = Weapon.Ammo;
         }
         
         public void MoveForward()
@@ -115,7 +115,24 @@ namespace GameWorld_classes
       
         public void Shoot()
         {
-            Console.WriteLine($"{ Nickname} сделал выстрел из оружия {Weapon.Name} ");
+            Console.WriteLine($"{ Nickname} сделал выстрел из оружия {Weapon.Shoot} ");  //одинаково называются методы в разных классах
+        }
+        public void DmgCounter()
+        {
+            if (Armor.ArmorValue > 0)
+            {
+                HP = HP - (Weapon.Dmg / Armor.DmgReductionMultiplier);
+                Armor.ArmorValue = Armor.ArmorValue - (Weapon.Dmg / Armor.DmgReductionMultiplier);
+            }
+            if (Armor.ArmorValue <= 0) ;
+            {
+                HP = HP - Weapon.Dmg;
+            }
+            if (HP<=0)
+            {
+                Console.WriteLine("вас убили");
+            }
+
         }
       
         }
