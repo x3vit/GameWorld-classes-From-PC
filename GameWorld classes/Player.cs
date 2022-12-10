@@ -31,7 +31,7 @@ namespace GameWorld_classes
             Armor = new Armor();
             Position=new PlayerPosition();
            
-            Action = "стоит на месте";
+            
             SetDefaultValues();
            
         }

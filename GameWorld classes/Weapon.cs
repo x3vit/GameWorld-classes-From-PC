@@ -12,11 +12,13 @@ namespace GameWorld_classes
             public string Name { get; set; }
             public int Dmg { get  ; set; }
             public int Ammo { get; set; }
-            public string Shoot;
+            
 
         public Weapon()
         {
             Name = "P250";
+            Dmg = 10;
+            Ammo = 10;
         }
             public Weapon(string name,int dmg,int ammo)
             {
@@ -26,6 +28,21 @@ namespace GameWorld_classes
             
                 
             }
+        public void Shoot()
+        {
+            if (Ammo<=0)
+            {
+                Reload();
+            }
+
+            Ammo--;
+        }
+        private void Reload()
+        {
+            Console.WriteLine("перезарядка");
+            Ammo = Ammo;
+            Console.WriteLine("перезарядка завершена");
+        }
         
     }
 }
