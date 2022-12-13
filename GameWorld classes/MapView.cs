@@ -8,11 +8,31 @@ namespace GameWorld_classes
 {
     internal class MapView
     {
-       private int Lenght = 10;
-       private int Height = 10;
+        private int Lenght = 10;
+        private int Height = 10;
+        private int ModelAngle;
+        private string Model;
        
         public void PaintMap(PlayerPosition position)
         {
+            ModelAngle=position.Angle;
+            if (ModelAngle==0)
+            {
+                Model = "^   ";
+
+            }
+            else if (ModelAngle==90)
+            {
+                Model = "V   ";
+            }
+            else if ( ModelAngle==180)
+            {
+                Model = "<   ";
+            }
+            else if (ModelAngle==270)
+            {
+                Model = ">   ";
+            }
             Console.WriteLine("Карта с игроками");
             for (int y = 0; y <= Height; y++)
             {
@@ -22,7 +42,7 @@ namespace GameWorld_classes
                     
                     if(x == position.X && y==position.Y)
                     {
-                        Console.Write("H   ");
+                        Console.Write($"{Model}");
                     }
                     else Console.Write("+   ");
                 }
