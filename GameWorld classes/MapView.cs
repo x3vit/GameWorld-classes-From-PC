@@ -23,7 +23,7 @@ namespace GameWorld_classes
             }
             else if (ModelAngle==90)
             {
-                Model = "<   ";
+                Model = ">   ";
             }
             else if ( ModelAngle==180)
             {
@@ -31,7 +31,7 @@ namespace GameWorld_classes
             }
             else if (ModelAngle==270)
             {
-                Model = ">   ";
+                Model = "<   ";
             }
             Console.WriteLine("Карта с игроками");
             for (int y = 0; y <= Height; y++)

@@ -10,7 +10,7 @@ Armor player1Armor = new Armor();
 Console.WriteLine(player1Armor.ArmorValue);
 Console.WriteLine($"игровое поле {((int)WorldHorizontalFieldX.coordinateX9)} по горизонтали на {((int)WorldVerticalFieldY.coordinateY9)} по вертикали ");
 Weapon players1Weapon = new Weapon();
-PlayerPosition playerPosition = new PlayerPosition(4,7,0);
+PlayerPosition playerPosition = new PlayerPosition(1,1,90);
 player1.Shoot();
 
 Console.WriteLine($"число игроков на сервере {server.Players.Count}");
