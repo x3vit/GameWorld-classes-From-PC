@@ -11,15 +11,20 @@ namespace GameWorld_classes
        private int Lenght = 10;
        private int Height = 10;
        
-        public void PaintMap()
+        public void PaintMap(PlayerPosition position)
         {
-
-            for (int y = Height; y >= 0; y--)
+            Console.WriteLine("Карта с игроками");
+            for (int y = 0; y <= Height; y++)
             {
 
-                for (int x = Lenght; x >= 0; x--)
+                for (int x = 0; x <= Lenght; x++)
                 {
-                    Console.Write("+          ");
+                    
+                    if(x == position.X && y==position.Y)
+                    {
+                        Console.Write("H   ");
+                    }
+                    else Console.Write("+   ");
                 }
                 Console.WriteLine("\n");
 
