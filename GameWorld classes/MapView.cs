@@ -18,16 +18,16 @@ namespace GameWorld_classes
             ModelAngle=position.Angle;
             if (ModelAngle==0)
             {
-                Model = "^   ";
+                Model = "V   ";
 
             }
             else if (ModelAngle==90)
             {
-                Model = "V   ";
+                Model = "<   ";
             }
             else if ( ModelAngle==180)
             {
-                Model = "<   ";
+                Model = "^   ";
             }
             else if (ModelAngle==270)
             {
