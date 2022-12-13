@@ -130,7 +130,7 @@ namespace GameWorld_classes
             }
             if (HP<=0)
             {
-                Console.WriteLine("вас убили");
+                Console.WriteLine($"игрок {Nickname} убит");
             }
 
         }

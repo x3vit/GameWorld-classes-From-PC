@@ -14,3 +14,6 @@ PlayerPosition playerPosition = new PlayerPosition();
 player1.Shoot();
 
 Console.WriteLine($"число игроков на сервере {server.Players.Count}");
+MapView mapView = new MapView();
+mapView.PaintMap();
+
