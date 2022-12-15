@@ -12,27 +12,19 @@ namespace GameWorld_classes
         private int Height = 10;
         private int ModelAngle;
         private string Model;
-       
+
+        public MapView()
+        {
+            Console.WriteLine("введите позицию игрока класса Playerposition");
+        }
+        public MapView(PlayerPosition position)
+        {
+            PaintMap(position);
+        }
         public void PaintMap(PlayerPosition position)
         {
-            ModelAngle=position.Angle;
-            if (ModelAngle==0)
-            {
-                Model = "V   ";
-
-            }
-            else if (ModelAngle==90)
-            {
-                Model = ">   ";
-            }
-            else if ( ModelAngle==180)
-            {
-                Model = "^   ";
-            }
-            else if (ModelAngle==270)
-            {
-                Model = "<   ";
-            }
+            
+            
             Console.WriteLine("Карта с игроками");
             for (int y = 0; y <= Height; y++)
             {
@@ -42,19 +34,25 @@ namespace GameWorld_classes
                     
                     if(x == position.X && y==position.Y)
                     {
-                        Console.Write($"{Model}");
+                        Console.Write($"{position.Model}");
                     }
+                   
                     else Console.Write("+   ");
                 }
                 Console.WriteLine("\n");
 
             }
             
-            
-               
-                
-            
+            }
+
+
+
+
         }
-    }
-   
+        
+        
+        
+        
 }
+   
+

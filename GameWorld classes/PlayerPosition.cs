@@ -11,6 +11,7 @@ namespace GameWorld_classes
         public int X = 0;
         public int Y = 0;
         public int Angle=0;
+        public string Model;
 
         public PlayerPosition()
         {
@@ -23,10 +24,33 @@ namespace GameWorld_classes
             X = playerPositionX;
             Y = playerPositionY;
             Angle = playerViewAngle;
+            ModelPosition(Angle);
+
+            }
+        public void ModelPosition(int Angle)
+        {
+
+            if (Angle == 0)
+            {
+                Model = "V   ";
+
+            }
+            else if (Angle == 90)
+            {
+                Model = ">   ";
+            }
+            else if (Angle == 180)
+            {
+                Model = "^   ";
+            }
+            else if (Angle == 270)
+            {
+                Model = "<   ";
             }
 
-
         }
+
+    }
     }
 
 
