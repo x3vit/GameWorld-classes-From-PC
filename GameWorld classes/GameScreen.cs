@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameWorld_classes
 {
-    internal class MapView
+    internal class GameScreen
     {
         private int Lenght = 10;
         private int Height = 10;
@@ -54,6 +54,10 @@ namespace GameWorld_classes
                
                 
             
+        }
+        public void PaintStats(Player player)
+        {
+            Console.WriteLine($"Ник игрока {player.Nickname} \n Здоровье {player.HP} \n Броня {player.Armor.ArmorValue} \n Фраги {player.Frags} \n Оружие {player.Weapon.Name} \n Смерти {player.Deaths} ");
         }
     }
    

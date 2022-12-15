@@ -25,6 +25,7 @@ namespace GameWorld_classes
             Nickname = "unknown";
             Weapon = new Weapon();
            
+           
             Frags = 0;
             Deaths = 0;
             
