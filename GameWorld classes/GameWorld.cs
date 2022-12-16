@@ -14,18 +14,18 @@ namespace GameWorld_classes
 
         public int CurrentRoundCounter = 1; //+ Action.Respawn;
         public int PlayersGameActionCounter = 0;
-
+        public int Lenght = 10;
+        public int Height = 10;
+        public int ModelAngle;
+        
         public GameWorld()
         { }
         
             public GameWorld(string endround)
             {
-            Players.Add(new Player() { Nickname="Chubrik2" }) ;
            
-                if (endround == "конец раунда")
-                {
-                    Console.WriteLine("начало следующего раунда.параметры игрока установлены на дефолтные");
-                }
+           
+                
             }
         }
     

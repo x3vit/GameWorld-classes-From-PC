@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -18,7 +19,7 @@ namespace GameWorld_classes
         public Armor Armor;
         public PlayerPosition Position;
         public string Action;
-
+        GameScreen MapView;
         public Player()
         {
             id = Guid.NewGuid();
@@ -46,11 +47,11 @@ namespace GameWorld_classes
         {
             if (Position.Angle == 180)
             {
-                Position.Y = Position.Y + 1;
+                Position.Y = Position.Y - 1;
             }
             if (Position.Angle == 0)
             {
-                Position.Y = Position.Y - 1;
+                Position.Y = Position.Y + 1;
             }
             if (Position.Angle == 90)
             {
@@ -62,17 +63,21 @@ namespace GameWorld_classes
             }
             if (Position.Y < 0) { Position.Y = 0; } 
             if (Position.X < 0) { Position.X = 0; }
-                
+            if(Position.Y > 9) { Position.Y = 10; }
+            if(Position.X > 9) { Position.X = 10; }
+            
+
+
         }
         public void MoveBack()
         {
             if (Position.Angle == 180)
             {
-                Position.Y = Position.Y - 1;
+                Position.Y = Position.Y + 1;
             }
             if (Position.Angle == 0)
             {
-                Position.Y = Position.Y + 1;
+                Position.Y = Position.Y - 1;
             }
             if (Position.Angle == 90)
             {
@@ -85,16 +90,16 @@ namespace GameWorld_classes
             if (Position.Y < 0) { Position.Y = 0; }
             if (Position.X < 0) { Position.X = 0; }
         }
-        public void TurnRight()
+        public void TurnLeft()
         {
-            Position.Angle=(Position.Angle+90)%360;
-           // if (Position.Angle >= 360) { Position.Angle=0; }
+            Position.Angle = (Position.Angle + 90);//%360;
+           if (Position.Angle > 360) { Position.Angle=Position.Angle-360; }
             
         }
-       public void TurnLeft()
+       public void TurnRight()
         {
-            Position.Angle = (Position.Angle - 90)%360;
-            
+            Position.Angle = (Position.Angle - 90);//%360;
+            if (Position.Angle < 0) { Position.Angle = 360 + Position.Angle; }
 
         }
         public void Respawn(PlayerPosition position)

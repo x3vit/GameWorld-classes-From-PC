@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,45 +10,56 @@ namespace GameWorld_classes
 {
     internal class GameScreen
     {
-        private int Lenght = 10;
-        private int Height = 10;
-        private int ModelAngle;
-        private string Model;
+        //private int Lenght = 10;
+        //private int Height = 10;
+        //private int ModelAngle;
+        
+        public GameWorld GameWorld;
        
-        public void PaintMap(PlayerPosition position)
+        public void PaintMap()
         {
-            ModelAngle=position.Angle;
-            if (ModelAngle==0)
-            {
-                Model = "V   ";
-
-            }
-            else if (ModelAngle==90)
-            {
-                Model = ">   ";
-            }
-            else if ( ModelAngle==180)
-            {
-                Model = "^   ";
-            }
-            else if (ModelAngle==270)
-            {
-                Model = "<   ";
-            }
+           
             Console.WriteLine("Карта с игроками");
-            for (int y = 0; y <= Height; y++)
+            for (int y = 0; y <= GameWorld.Height; y++)
             {
 
-                for (int x = 0; x <= Lenght; x++)
+                for (int x = 0; x <= GameWorld.Lenght; x++ )
                 {
+
+                    foreach (var player in GameWorld.Players)
+
+                     if (x == player.Position.X && y == player.Position.Y)
+                        {
+                            PaintPlayer(player);
+                            x++;
+
+                            
+                        }
                     
-                    if(x == position.X && y==position.Y)
-                    {
-                        Console.Write($"{Model}");
-                    }
-                    else Console.Write("+   ");
+                    
+                    if(x <=10)
+                    Console.Write("+  ");
+
+
+
+
+
+
+
+
+
+
+
+
+
                 }
-                Console.WriteLine("\n");
+                if (y < GameWorld.Players.Count)
+                {
+                    PaintStats(GameWorld.Players[y]);
+                    //Console.Write("\n");
+                }
+                else Console.Write("\n");
+
 
             }
             
@@ -57,7 +70,30 @@ namespace GameWorld_classes
         }
         public void PaintStats(Player player)
         {
-            Console.WriteLine($"Ник игрока {player.Nickname} \n Здоровье {player.HP} \n Броня {player.Armor.ArmorValue} \n Фраги {player.Frags} \n Оружие {player.Weapon.Name} \n Смерти {player.Deaths} ");
+            Console.WriteLine($"\tНик игрока{player.Nickname}\tЗдоровье{player.HP} Броня{player.Armor.ArmorValue} Фраги {player.Frags} Оружие{player.Weapon.Name} Смерти{player.Deaths} ");
+        }
+        private void PaintPlayer(Player player)
+        {
+            string Model="";
+            if (player.Position.Angle == 0)
+            {
+                Model = "V  ";
+
+            }
+            else if (player.Position.Angle == 90)
+            {
+                Model = ">  ";
+            }
+            else if (player.Position.Angle == 180)
+            {
+                Model = "^  ";
+            }
+            else if (player.Position.Angle == 270)
+            {
+                Model = "<  ";
+            }
+            
+            Console.Write($"{Model}");
         }
     }
    
