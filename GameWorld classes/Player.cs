@@ -20,6 +20,7 @@ namespace GameWorld_classes
         public PlayerPosition Position;
         public string Action;
         GameScreen MapView;
+        public GameWorld GameWorld;                  //dla testa 
         public Player()
         {
             id = Guid.NewGuid();
@@ -102,14 +103,15 @@ namespace GameWorld_classes
             if (Position.Angle < 0) { Position.Angle = 360 + Position.Angle; }
 
         }
-        public void Respawn(PlayerPosition position)
+        public void Respawn()//PlayerPosition position)
         {
-            this.Position.X = Position.X;
-            this.Position.Y = Position.Y;
+            this.Position.X = 0;// Position.X;
+            this.Position.Y = 0;// Position.Y;
             SetDefaultValues();
             
 
         }
+        
         public Player(Guid id, string nickname, Weapon weapon,Armor armor,PlayerPosition position)
         {
             this.id = id;
@@ -119,30 +121,12 @@ namespace GameWorld_classes
             Position = position;
         }
       
-        public void Shoot()
-        {
-            Console.WriteLine($"{ Nickname} сделал выстрел из оружия {Weapon.Shoot} ");  //одинаково называются методы в разных классах
-        }
-        public void DmgCounter()
-        {
-            if (Armor.ArmorValue > 0)
-            {
-                HP = HP - (Weapon.Dmg / Armor.DmgReductionMultiplier);
-                Armor.ArmorValue = Armor.ArmorValue - (Weapon.Dmg / Armor.DmgReductionMultiplier);
-            }
-            if (Armor.ArmorValue <= 0) ;
-            {
-                HP = HP - Weapon.Dmg;
-            }
-            if (HP<=0)
-            {
-                Console.WriteLine($"игрок {Nickname} убит");
-            }
+
 
         }
       
         }
-    }
+    
 
 
 
