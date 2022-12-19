@@ -75,22 +75,27 @@ namespace GameWorld_classes
         private void PaintPlayer(Player player)
         {
             string Model="";
-            if (player.Position.Angle == 0)
+            
+            if (player.Position.Angle == 0 && player.HP >0)
             {
                 Model = "V  ";
 
             }
-            else if (player.Position.Angle == 90)
+            else if (player.Position.Angle == 90 && player.HP > 0)
             {
                 Model = ">  ";
             }
-            else if (player.Position.Angle == 180)
+            else if (player.Position.Angle == 180 && player.HP > 0)
             {
                 Model = "^  ";
             }
-            else if (player.Position.Angle == 270)
+            else if (player.Position.Angle == 270 && player.HP > 0)
             {
                 Model = "<  ";
+            }
+            else if(player.HP <=0)
+            {
+                Model = "X  ";
             }
             
             Console.Write($"{Model}");
