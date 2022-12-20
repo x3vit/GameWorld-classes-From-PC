@@ -9,10 +9,10 @@ player2.Nickname = "Chubrick2";
 player3.Nickname = "Chubrick3";
 //Player player4 = new Player();
 //Player player5 = new Player();
-player1.Position.X = 2;
-player1.Position.Y = 2;
-player2.Position.X = 6;
-player2.Position.Y = 2;
+player1.Position.X = 0;
+player1.Position.Y = 0;
+player2.Position.X = 0;
+player2.Position.Y = 3;
 player3.Position.X = 6;
 player3.Position.Y = 0;
 //player4.Position.X = 3;
@@ -45,17 +45,40 @@ mapView.PaintMap();
 //player2.TurnLeft();
 //player2.MoveForward();
 //player2.TurnRight();
-player1.TurnLeft();
-player2.TurnLeft();
-player2.TurnLeft();    
-server.Shoot(player1.Position, player1.Weapon);
-server.Shoot(player2.Position, player2.Weapon);
-server.Shoot(player3.Position, player3.Weapon);
+//player1.TurnLeft();
+//player2.TurnLeft();
+//player2.TurnLeft();    
+server.Shoot(player1);
+server.Shoot(player1);
+server.Shoot(player1);
+server.Shoot(player1);
+server.Shoot(player1);
+server.Shoot(player1);
+server.Shoot(player1);
+server.Shoot(player1);
+server.Shoot(player1);
+server.Shoot(player1);
+server.Shoot(player1);
+server.Shoot(player1);
+server.Shoot(player1);
+server.Shoot(player1);
+server.Shoot(player1);
+server.Shoot(player1);
+server.Shoot(player1);
+server.Shoot(player1);
+server.Shoot(player1);
+server.Shoot(player1);
+server.Shoot(player1);
+server.Shoot(player1);
+server.Shoot(player1);
+server.Shoot(player1);
+
+
 
 
 
 mapView.PaintMap();
 //server.Shoot(player2.Position, player2.Weapon); server.Shoot(player2.Position, player2.Weapon); server.Shoot(player2.Position, player2.Weapon); server.Shoot(player2.Position, player2.Weapon); server.Shoot(player2.Position, player2.Weapon); server.Shoot(player2.Position, player2.Weapon); server.Shoot(player2.Position, player2.Weapon); server.Shoot(player2.Position, player2.Weapon); server.Shoot(player2.Position, player2.Weapon); server.Shoot(player2.Position, player2.Weapon); server.Shoot(player2.Position, player2.Weapon); server.Shoot(player2.Position, player2.Weapon); server.Shoot(player2.Position, player2.Weapon); server.Shoot(player2.Position, player2.Weapon); server.Shoot(player2.Position, player2.Weapon); server.Shoot(player2.Position, player2.Weapon); server.Shoot(player2.Position, player2.Weapon);
-mapView.PaintMap();
+
 
 //mapView.PaintStats(player1);
