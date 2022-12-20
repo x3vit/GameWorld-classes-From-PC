@@ -20,10 +20,8 @@ player3.Position.Y = 0;
 //player5.Position.X = 4;
 //player5.Position.Y = 4;
 GameWorld server = new GameWorld();
+server.Actions.Add(new PlayerAction {player=player1,action=ActionType.MoveForward });
 
-server.Players.Add(player1);
-server.Players.Add(player2);
-server.Players.Add(player3);
 //server.Players.Add(player4);
 //server.Players.Add(player5);
 Console.WriteLine(player1.id);
@@ -39,39 +37,25 @@ Weapon players1Weapon = new Weapon();
 
 Console.WriteLine($"число игроков на сервере {server.Players.Count}");
 GameScreen mapView = new GameScreen() { GameWorld = server };
+server.Players.Add(player1);
+server.Players.Add(player2);
+server.Players.Add(player3);
+player1.GameWorld = server;
+player2.GameWorld = server;
+player3.GameWorld = server;
 mapView.PaintMap();
 
-//player1.MoveForward();
+player1.Shoot(player1);
+player1.MoveForward();
+
 //player2.TurnLeft();
 //player2.MoveForward();
 //player2.TurnRight();
 //player1.TurnLeft();
 //player2.TurnLeft();
 //player2.TurnLeft();    
-server.Shoot(player1);
-server.Shoot(player1);
-server.Shoot(player1);
-server.Shoot(player1);
-server.Shoot(player1);
-server.Shoot(player1);
-server.Shoot(player1);
-server.Shoot(player1);
-server.Shoot(player1);
-server.Shoot(player1);
-server.Shoot(player1);
-server.Shoot(player1);
-server.Shoot(player1);
-server.Shoot(player1);
-server.Shoot(player1);
-server.Shoot(player1);
-server.Shoot(player1);
-server.Shoot(player1);
-server.Shoot(player1);
-server.Shoot(player1);
-server.Shoot(player1);
-server.Shoot(player1);
-server.Shoot(player1);
-server.Shoot(player1);
+
+//server.Shoot(player1);server.Shoot(player1);server.Shoot(player1);server.Shoot(player1);server.Shoot(player1);server.Shoot(player1);server.Shoot(player1);server.Shoot(player1);server.Shoot(player1);
 
 
 

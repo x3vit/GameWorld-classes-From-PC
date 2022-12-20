@@ -11,9 +11,9 @@ namespace GameWorld_classes
     {
 
         public List<Player> Players = new List<Player>();
-
-        public int CurrentRoundCounter = 1; //+ Action.Respawn;
-        public int PlayersGameActionCounter = 0;
+        public List<PlayerAction> Actions = new List<PlayerAction>();              // сделать в листе список действий, каждый ход игрока одно действие. например в листе с 1 игроком 15 действий а у другого 10 . оба выполнят 10 т.к. 10 раундов. 
+        
+        
         public int Lenght = 10;
         public int Height = 10;
         public int ModelAngle;
@@ -89,6 +89,7 @@ namespace GameWorld_classes
                 Console.WriteLine($"{playerDmgCheck.Nickname} получил урон от игрока  {player.Nickname}");
                 if (playerDmgCheck.HP <= 0)
                 {
+                    playerDmgCheck.HP = 0;
                     playerDmgCheck.Deaths++;
                     player.Frags++;
                     Console.WriteLine($"игрок {playerDmgCheck.Nickname}  убит игроком{player.Nickname}");
@@ -100,6 +101,7 @@ namespace GameWorld_classes
                 Console.WriteLine($"{playerDmgCheck.Nickname} получил урон от игрока  {player.Nickname}");
                 if (playerDmgCheck.HP <= 0)
                 {
+                    playerDmgCheck.HP = 0;
                     playerDmgCheck.Deaths++;
                     player.Frags++;
                     Console.WriteLine($"игрок {playerDmgCheck.Nickname}  убит игроком{player.Nickname}");

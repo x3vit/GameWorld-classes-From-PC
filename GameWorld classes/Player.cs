@@ -20,7 +20,7 @@ namespace GameWorld_classes
         public PlayerPosition Position;
         public string Action;
         GameScreen MapView;
-        public GameWorld GameWorld;                  //dla testa 
+        public GameWorld GameWorld;               //dla testa 
         public Player()
         {
             id = Guid.NewGuid();
@@ -120,8 +120,11 @@ namespace GameWorld_classes
             Armor = armor;
             Position = position;
         }
-      
 
+       public void Shoot(Player player)
+        {
+            GameWorld.Shoot(player);
+        }
 
         }
       

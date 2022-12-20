@@ -17,7 +17,7 @@ namespace GameWorld_classes
         public Weapon()
         {
             Name = "P250";
-            Dmg = 10;
+            Dmg = 20;
             Ammo = 10;
         }
             public Weapon(string name,int dmg,int ammo)
