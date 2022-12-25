@@ -52,7 +52,7 @@ namespace GameWorld_classes
             }
             if (player.Position.Angle == 90)
             {
-                for (int x = player.Position.X + 1; (x <= Lenght); x++)
+                for (int x = player.Position.X - 1; (x >= 0); x--)
 
                     foreach (var playerDmgCheck in Players)
                     {
@@ -75,7 +75,8 @@ namespace GameWorld_classes
             }
             if (player.Position.Angle == 270)
             {
-                for (int x = player.Position.X - 1; (x >= 0); x--)
+                
+                for (int x = player.Position.X + 1; (x <= Lenght); x++)
 
                     foreach (var playerDmgCheck in Players)
                     {
