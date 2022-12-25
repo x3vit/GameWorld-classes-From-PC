@@ -45,8 +45,12 @@ player2.GameWorld = server;
 player3.GameWorld = server;
 mapView.PaintMap();
 
-player1.Shoot(player1);
-player1.MoveForward();
+player1.TurnLeft();
+player1.TurnLeft();
+player2.TurnLeft();
+player2.TurnLeft();
+player2.Shoot(player2);
+
 
 //player2.TurnLeft();
 //player2.MoveForward();

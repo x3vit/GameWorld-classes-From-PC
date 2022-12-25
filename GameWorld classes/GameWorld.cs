@@ -48,7 +48,7 @@ namespace GameWorld_classes
 
                     foreach (var playerDmgCheck in Players)
                     {
-                        if (player.Position.X == x && playerDmgCheck.Position.X != player.Position.X && playerDmgCheck.Position.Y == player.Position.Y && playerDmgCheck.HP > 0)
+                        if (playerDmgCheck.Position.X == x && playerDmgCheck.Position.X != player.Position.X && playerDmgCheck.Position.Y == player.Position.Y && playerDmgCheck.HP > 0)
                             RegistrationDmg(player, playerDmgCheck);
 
                     }
@@ -60,7 +60,7 @@ namespace GameWorld_classes
 
                     foreach (var playerDmgCheck in Players)
                     {
-                        if (player.Position.Y == y && playerDmgCheck.Position.Y != player.Position.Y && playerDmgCheck.Position.X == player.Position.X && playerDmgCheck.HP > 0)
+                        if (playerDmgCheck.Position.Y == y && playerDmgCheck.Position.Y != player.Position.Y && playerDmgCheck.Position.X == player.Position.X && playerDmgCheck.HP > 0)
                             RegistrationDmg(player, playerDmgCheck);
 
                     }
@@ -71,7 +71,7 @@ namespace GameWorld_classes
 
                     foreach (var playerDmgCheck in Players)
                     {
-                        if (player.Position.X == x && playerDmgCheck.Position.X != player.Position.X && playerDmgCheck.Position.Y == player.Position.Y && playerDmgCheck.HP > 0)
+                        if (playerDmgCheck.Position.X == x && playerDmgCheck.Position.X != player.Position.X && playerDmgCheck.Position.Y == player.Position.Y && playerDmgCheck.HP > 0)
                             RegistrationDmg(player, playerDmgCheck);
 
                     }
