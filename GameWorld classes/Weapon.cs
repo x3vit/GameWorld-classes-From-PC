@@ -12,7 +12,13 @@ namespace GameWorld_classes
             public string Name { get; set; }
             public int Dmg { get  ; set; }
             public int Ammo { get; set; }
-            
+        public void Reload()
+        {
+            Console.WriteLine("перезарядка");
+            Ammo = Ammo;
+            Console.WriteLine("перезарядка завершена");
+        }
+
 
         public Weapon()
         {
@@ -28,23 +34,8 @@ namespace GameWorld_classes
             
                 
             }
-        public void Shoot()
-        {
-            if (Ammo<=0)
-            {
-                Reload();
-            }
-            Ammo--;
-            Console.WriteLine($"{Name} с уроном {Dmg}, осталось патронов в обойме {Ammo}");
-
-           
-        }
-        private void Reload()
-        {
-            Console.WriteLine("перезарядка");
-            Ammo = Ammo;
-            Console.WriteLine("перезарядка завершена");
-        }
+       
         
     }
+    
 }
