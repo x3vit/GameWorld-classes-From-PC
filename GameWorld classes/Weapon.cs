@@ -8,10 +8,11 @@ namespace GameWorld_classes
 {
     internal class Weapon
     {
-       
-            public string Name { get; set; }
-            public int Dmg { get  ; set; }
-            public int Ammo { get; set; }
+
+        public string Name { get; set; }
+        public int Dmg { get; set; }
+        public int Ammo { get; set; }
+        public int Price { get; set; }
         public void Reload()
         {
             Console.WriteLine("перезарядка");
@@ -26,16 +27,16 @@ namespace GameWorld_classes
             Dmg = 20;
             Ammo = 10;
         }
-            public Weapon(string name,int dmg,int ammo)
-            {
+        public Weapon(string name, int dmg, int ammo)
+        {
             Name = name;
             Dmg = dmg;
             Ammo = ammo;
-            
-                
-            }
-       
-        
+
+
+        }
+
+
     }
-    
+
 }
