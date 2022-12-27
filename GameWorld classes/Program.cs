@@ -1,12 +1,18 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using GameWorld_classes;
 //4th branch
+Weapon AWP=new Weapon() { Name="AWP",Ammo=5,Dmg=100,Price=5000};
+CTWeapon M16 = new CTWeapon() { Name="M16" ,Ammo=30,Dmg=25,Price=3000};
+
+TWeapon AK47 = new TWeapon() { Name="AK47",Ammo=30,Dmg=30,Price=3500};
+
 Player player1 = new Player();
 Player player2 = new Player();
 Player player3 = new Player();
 player1.Nickname = "Chubrik1";
 player2.Nickname = "Chubrick2";
 player3.Nickname = "Chubrick3";
+player1.Weapon = AWP;
 //Player player4 = new Player();
 //Player player5 = new Player();
 player1.Position.X = 0;
@@ -44,6 +50,7 @@ player1.GameWorld = server;
 player2.GameWorld = server;
 player3.GameWorld = server;
 mapView.PaintMap();
+
 player1.TurnRight();
 player1.Shoot(player1);
 player1.TurnLeft();

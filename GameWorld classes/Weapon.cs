@@ -27,12 +27,12 @@ namespace GameWorld_classes
             Dmg = 20;
             Ammo = 10;
         }
-        public Weapon(string name, int dmg, int ammo)
+        public Weapon(string name, int dmg, int ammo,int price)
         {
             Name = name;
             Dmg = dmg;
             Ammo = ammo;
-
+            Price = price;
 
         }
 
