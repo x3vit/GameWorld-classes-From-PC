@@ -7,7 +7,7 @@
       <FileName>Armor.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="GameWorld_classes.CTWeapon" Collapsed="true">
+  <Class Name="GameWorld_classes.CTWeapon">
     <Position X="5.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAA=</HashCode>
@@ -29,7 +29,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="GameWorld_classes.Player" Collapsed="true">
-    <Position X="8.25" Y="1.5" Width="1.5" />
+    <Position X="8.25" Y="1.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ACABIAAAQAACBAAgAAABAAABRAEAAEggEAAAAAACAgQ=</HashCode>
       <FileName>Player.cs</FileName>
@@ -49,8 +49,11 @@
       <FileName>PlayerPosition.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="GameWorld_classes.TWeapon" Collapsed="true">
+  <Class Name="GameWorld_classes.TWeapon">
     <Position X="3.5" Y="1.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
       <HashCode>AAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>TWeapon.cs</FileName>
@@ -64,7 +67,7 @@
     </TypeIdentifier>
   </Class>
   <Enum Name="GameWorld_classes.ActionType" Collapsed="true">
-    <Position X="8.25" Y="2.75" Width="1.5" />
+    <Position X="10" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAIAAAAAACBAAAAAAAAAAAAAEAAEAAAAAAAAAAAAA=</HashCode>
       <FileName>PlayerAction.cs</FileName>

@@ -50,7 +50,7 @@ namespace GameWorld_classes
 
                     }
             }
-            if (player.Position.Angle == 90)
+            if (player.Position.Angle == 270)
             {
                 for (int x = player.Position.X - 1; (x >= 0); x--)
 
@@ -73,7 +73,7 @@ namespace GameWorld_classes
 
                     }
             }
-            if (player.Position.Angle == 270)
+            if (player.Position.Angle == 90)
             {
                 
                 for (int x = player.Position.X + 1; (x <= Lenght); x++)

@@ -1,10 +1,10 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using GameWorld_classes;
 //4th branch
-Weapon AWP=new Weapon() { Name="AWP",Ammo=5,Dmg=100,Price=5000};
-CTWeapon M16 = new CTWeapon() { Name="M16" ,Ammo=30,Dmg=25,Price=3000};
+Weapon AWP = new Weapon() { Name = "AWP", Ammo = 5, Dmg = 100, Price = 5000 };
+CTWeapon M16 = new CTWeapon() { Name = "M16", Ammo = 30, Dmg = 25, Price = 3000 };
 
-TWeapon AK47 = new TWeapon() { Name="AK47",Ammo=30,Dmg=30,Price=3500};
+TWeapon AK47 = new TWeapon() { Name = "AK47", Ammo = 30, Dmg = 30, Price = 3500 };
 
 Player player1 = new Player();
 Player player2 = new Player();
@@ -15,20 +15,22 @@ player2.Nickname = "Chubrick2";
 player3.Nickname = "Chubrick3";
 player4.Nickname = "Chubrik4";
 player1.Weapon = AWP;
+player2.Weapon = M16;
+player3.Weapon = AK47;
 
 //Player player5 = new Player();
 player1.Position.X = 0;
 player1.Position.Y = 0;
 player2.Position.X = 0;
 player2.Position.Y = 3;
-player3.Position.X = 6;
+player3.Position.X = 3;
 player3.Position.Y = 0;
 player4.Position.X = 3;
 player4.Position.Y = 3;
 //player5.Position.X = 4;
 //player5.Position.Y = 4;
 GameWorld server = new GameWorld();
-server.Actions.Add(new PlayerAction {player=player1,action=ActionType.MoveForward });
+server.Actions.Add(new PlayerAction { player = player1, action = ActionType.MoveForward });
 
 
 
@@ -53,10 +55,16 @@ player4.GameWorld = server;
 mapView.PaintMap();
 
 player1.TurnRight();
-player1.Shoot(player1);
 player1.TurnLeft();
 player1.TurnLeft();
 player2.TurnLeft();
+player2.TurnLeft();
+player4.TurnRight();
+player1.Shoot(player1);
+player2.Shoot(player2);
+player3.Shoot(player3);
+player4.Shoot(player4);
+
 
 //player2.Shoot(player2);
 
