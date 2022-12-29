@@ -46,19 +46,19 @@ namespace GameWorld_classes
         
         public void MoveForward()
         {
-            if (Position.Angle == 180)
+            if (Position.Angle == 0)
             {
                 Position.Y = Position.Y - 1;
             }
-            if (Position.Angle == 0)
+            if (Position.Angle == 180)
             {
                 Position.Y = Position.Y + 1;
             }
-            if (Position.Angle == 90)
+            if (Position.Angle == 270 && Position.X > 0)
             {
                 Position.X= Position.X + 1;
             }
-            if (Position.Angle ==270 && Position.X >0)
+            if (Position.Angle ==90 && Position.X >0)
             {
                 Position.X = Position.X - 1;
             }
@@ -72,19 +72,19 @@ namespace GameWorld_classes
         }
         public void MoveBack()
         {
-            if (Position.Angle == 180)
+            if (Position.Angle == 0)
             {
                 Position.Y = Position.Y + 1;
             }
-            if (Position.Angle == 0)
+            if (Position.Angle == 180)
             {
                 Position.Y = Position.Y - 1;
             }
-            if (Position.Angle == 90)
+            if (Position.Angle == 270 && Position.X > 0)
             {
                 Position.X = Position.X - 1;
             }
-            if (Position.Angle == 270 && Position.X > 0)
+            if (Position.Angle == 90 && Position.X > 0)
             {
                 Position.X = Position.X + 1;
             }
