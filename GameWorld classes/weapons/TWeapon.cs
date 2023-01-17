@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GameWorld_classes
+namespace GameWorld_classes.weapons
 {
-    internal class TWeapon:Weapon
+    internal class TWeapon : Weapon
     {
         int PriceMultiplier = 2;
-        public TWeapon():base()
+        public TWeapon() : base()
         {
             Price = Price / PriceMultiplier;
 

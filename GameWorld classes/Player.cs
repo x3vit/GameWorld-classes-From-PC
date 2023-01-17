@@ -121,9 +121,9 @@ namespace GameWorld_classes
             Position = position;
         }
 
-       public void Shoot(Player player)
+       public void Shoot()
         {
-            GameWorld.Shoot(player);
+            GameWorld.Shoot(this);
         }
 
         }

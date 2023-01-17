@@ -34,8 +34,8 @@ player4.Position.X = 4;
 player4.Position.Y = 4;
 
 GameWorld server = new GameWorld();
-server.Actions.Add(new PlayerAction { player = player1, action = ActionType.MoveForward });
-server.Actions.Add(new PlayerAction { player=player2,action= ActionType.TurnLeft });
+server.Actions.Add(new PlayerAction { player = player1, type = ActionType.MoveForward });
+server.Actions.Add(new PlayerAction { player=player2,type= ActionType.TurnLeft });
 
 
 Armor player1Armor = new Armor();
@@ -58,10 +58,13 @@ player3.GameWorld = server;
 player4.GameWorld = server;
 foreach(var action in server.Actions)
 {
-    if (action=ActionType.MoveForward )
+    var a = action;
+    if (action.type == ActionType.MoveForward)
     {
 
     }
+    
+    
     
 }
 mapView.PaintMap();
@@ -69,10 +72,10 @@ player1.TurnLeft();
 player2.TurnLeft();
 player2.TurnLeft();
 player4.TurnRight();
-player1.Shoot(player1);
-player2.Shoot(player2);
-player3.Shoot(player3);
-player4.Shoot(player4);
+player1.Shoot();
+player2.Shoot();
+player3.Shoot();
+player4.Shoot();
 
 
 mapView.PaintMap();

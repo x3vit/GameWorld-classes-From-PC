@@ -4,21 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GameWorld_classes
+namespace GameWorld_classes.weapons
 {
-    internal class CTWeapon: Weapon
+    internal class CTWeapon : Weapon
     {
         int DmgMultiplier = 2;
         int AmmoReduceMultiplier = 2;
-        public  CTWeapon(): base()
+        public CTWeapon() : base()
         {
             Dmg = Dmg * DmgMultiplier;
-            Ammo = Ammo / AmmoReduceMultiplier+(Ammo%AmmoReduceMultiplier);
+            Ammo = Ammo / AmmoReduceMultiplier + Ammo % AmmoReduceMultiplier;
         }
         public CTWeapon(int DmgMultiplier) : base()
         {
             Dmg = Dmg * DmgMultiplier;
-            Ammo = Ammo / AmmoReduceMultiplier + (Ammo % AmmoReduceMultiplier);
+            Ammo = Ammo / AmmoReduceMultiplier + Ammo % AmmoReduceMultiplier;
         }
     }
 }

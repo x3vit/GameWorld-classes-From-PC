@@ -9,7 +9,7 @@ namespace GameWorld_classes
     internal class PlayerAction
     {
        public Player player;
-       public ActionType action; 
+       public ActionType type; 
 
 
 
