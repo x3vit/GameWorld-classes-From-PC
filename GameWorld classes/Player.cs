@@ -18,7 +18,7 @@ namespace GameWorld_classes
         public int HP;
         public Armor Armor;
         public PlayerPosition Position;
-        public string Action;
+        //public string Action;
         GameScreen MapView;
         public GameWorld GameWorld;               //dla testa 
         public Player()

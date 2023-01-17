@@ -1,5 +1,9 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using GameWorld_classes;
+using System.Security.AccessControl;
+{
+
+}
 //4th branch
 Weapon AWP = new Weapon() { Name = "AWP", Ammo = 5, Dmg = 100, Price = 5000 };
 
@@ -31,7 +35,7 @@ player4.Position.Y = 4;
 
 GameWorld server = new GameWorld();
 server.Actions.Add(new PlayerAction { player = player1, action = ActionType.MoveForward });
-
+server.Actions.Add(new PlayerAction { player=player2,action= ActionType.TurnLeft });
 
 
 Armor player1Armor = new Armor();
@@ -52,6 +56,14 @@ player1.GameWorld = server;
 player2.GameWorld = server;
 player3.GameWorld = server;
 player4.GameWorld = server;
+foreach(var action in server.Actions)
+{
+    if (action=ActionType.MoveForward )
+    {
+
+    }
+    
+}
 mapView.PaintMap();
 player1.TurnLeft();
 player2.TurnLeft();
