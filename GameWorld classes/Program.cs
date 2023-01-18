@@ -7,8 +7,8 @@ using System.Security.AccessControl;
 //4th branch
 Weapon AWP = new Weapon() { Name = "AWP", Ammo = 5, Dmg = 100, Price = 5000 };
 
-CTWeapon M16 = new CTWeapon() { Name = "M16", Ammo = 30, Dmg = 25, Price = 3000 };
-TWeapon AK47 = new TWeapon() { Name = "AK47", Ammo = 30, Dmg = 30, Price = 3500 };
+//CTWeapon M16 = new CTWeapon() { Name = "M16", Ammo = 30, Dmg = 25, Price = 3000 };
+//TWeapon AK47 = new TWeapon() { Name = "AK47", Ammo = 30, Dmg = 30, Price = 3500 };
 
 Player player1 = new Player();
 Player player2 = new Player();
@@ -21,8 +21,8 @@ player3.Nickname = "Chubrick3";
 player4.Nickname = "Chubrik4";
 
 player1.Weapon = AWP;
-player2.Weapon = M16;
-player3.Weapon = AK47;
+//player2.Weapon = M16;
+//player3.Weapon = AK47;
 
 player1.Position.X = 1;
 player1.Position.Y = 1;
@@ -36,8 +36,10 @@ player4.Position.Y = 4;
 GameWorld server = new GameWorld();
 server.Actions.Add(new PlayerAction { player = player1, type = ActionType.MoveForward });
 server.Actions.Add(new PlayerAction { player=player2,type= ActionType.TurnLeft });
+server.Actions.Add(new PlayerAction { player = player3, type = ActionType.TurnLeft });
 
-
+server.Actions.Add(new PlayerAction { player = player2, type = ActionType.TurnLeft });
+server.Actions.Add(new PlayerAction { player = player1, type = ActionType.MoveForward });
 Armor player1Armor = new Armor();
 Console.WriteLine(player1Armor.ArmorValue);
 Console.WriteLine($"игровое поле {((int)WorldHorizontalFieldX.coordinateX9)} по горизонтали на {((int)WorldVerticalFieldY.coordinateY9)} по вертикали ");
@@ -56,26 +58,40 @@ player1.GameWorld = server;
 player2.GameWorld = server;
 player3.GameWorld = server;
 player4.GameWorld = server;
-foreach(var action in server.Actions)
+foreach (var action in server.Actions)
 {
-    var a = action;
+
     if (action.type == ActionType.MoveForward)
     {
-
+        action.player.MoveForward();
     }
-    
-    
-    
+    else if (action.type == ActionType.TurnLeft)
+    {
+        action.player.TurnLeft();
+    }
+    else if (action.type == ActionType.TurnRight)
+    {
+        action.player.TurnRight();
+    }
+    else if (action.type == ActionType.MoveBack)
+    {
+        action.player.MoveBack();
+    }
+
+
+
 }
 mapView.PaintMap();
-player1.TurnLeft();
-player2.TurnLeft();
-player2.TurnLeft();
-player4.TurnRight();
-player1.Shoot();
-player2.Shoot();
-player3.Shoot();
-player4.Shoot();
+//player1.TurnLeft();
+
+//player2.TurnLeft();
+
+//player2.TurnLeft();
+//player4.TurnRight();
+//player1.Shoot();
+//player2.Shoot();
+//player3.Shoot();
+//player4.Shoot();
 
 
 mapView.PaintMap();

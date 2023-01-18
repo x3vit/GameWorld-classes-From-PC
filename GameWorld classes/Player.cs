@@ -48,19 +48,19 @@ namespace GameWorld_classes
         {
             if (Position.Angle == 0)
             {
-                Position.Y = Position.Y - 1;
+                Position.Y = Position.Y + 1;
             }
             if (Position.Angle == 180)
             {
-                Position.Y = Position.Y + 1;
+                Position.Y = Position.Y - 1;
             }
-            if (Position.Angle == 270 && Position.X > 0)
+            if (Position.Angle == 270 && Position.X >= 0)
             {
-                Position.X= Position.X + 1;
+                Position.X= Position.X - 1;
             }
-            if (Position.Angle ==90 && Position.X >0)
+            if (Position.Angle ==90 && Position.X >=0)
             {
-                Position.X = Position.X - 1;
+                Position.X = Position.X + 1;
             }
             if (Position.Y < 0) { Position.Y = 0; } 
             if (Position.X < 0) { Position.X = 0; }
