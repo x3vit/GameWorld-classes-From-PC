@@ -83,35 +83,38 @@ for (int j = 0; j < server.RoundMaxAction; j++)
         foreach (var action in server.Actions)
         {
 
-            if (action.player.ActionCounter < j)
+            if (action.player.ActionCounter < 1)
             {
                 if (action.type == ActionType.MoveForward)
                 {
                     action.player.MoveForward();
                     action.player.ActionCounter++;
-                    //server.Actions.Remove(action);
+                    server.Actions.RemoveAt(j);
 
                 }
                 else if (action.type == ActionType.TurnLeft)
                 {
                     action.player.TurnLeft();
                     action.player.ActionCounter++;
-
+                    server.Actions.RemoveAt(j);
                 }
                 else if (action.type == ActionType.TurnRight)
                 {
                     action.player.TurnRight();
                     action.player.ActionCounter++;
+                    server.Actions.RemoveAt(j);
                 }
                 else if (action.type == ActionType.MoveBack)
                 {
                     action.player.MoveBack();
                     action.player.ActionCounter++;
+                    server.Actions.RemoveAt(j);
                 }
                 else if (action.type == ActionType.Shoot)
                 {
                     action.player.Shoot();
                     action.player.ActionCounter++;
+                    server.Actions.RemoveAt(j);
                 }
                 mapView.PaintMap();
 
