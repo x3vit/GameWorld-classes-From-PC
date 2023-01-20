@@ -20,7 +20,8 @@ namespace GameWorld_classes
         public PlayerPosition Position;
         //public string Action;
         GameScreen MapView;
-        public GameWorld GameWorld;               //dla testa 
+        public GameWorld GameWorld;
+        public int ActionCounter;
         public Player()
         {
             id = Guid.NewGuid();

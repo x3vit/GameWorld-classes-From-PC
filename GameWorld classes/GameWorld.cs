@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Collections.Specialized.BitVector32;
 
 namespace GameWorld_classes
 {
@@ -29,6 +30,10 @@ namespace GameWorld_classes
 
         }
         
+        public void EndRound(Player player)
+        {
+            player.ActionCounter = 0;
+        }
         public void Shoot(Player player)
         {
             if (player.Weapon.Ammo > 0)
@@ -38,6 +43,7 @@ namespace GameWorld_classes
             else
             {
                 player.Weapon.Reload();
+                //player.ActionCounter++;                     ////Vajno protestit
             }
             
             if (player.Position.Angle == 0)
