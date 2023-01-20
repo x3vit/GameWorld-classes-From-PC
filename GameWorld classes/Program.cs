@@ -1,7 +1,9 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using GameWorld_classes;
 using GameWorld_classes.weapons;
+using System;
 using System.Security.AccessControl;
+using static System.Collections.Specialized.BitVector32;
 {
 
 }
@@ -44,12 +46,16 @@ player4.Position.X = 4;
 player4.Position.Y = 4;
 
 GameWorld server = new GameWorld();
+
 server.Actions.Add(new PlayerAction { player = player1, type = ActionType.MoveForward });
 server.Actions.Add(new PlayerAction { player = player1, type = ActionType.TurnLeft });
+
 //server.Actions.Add(new PlayerAction { player = player1, type = ActionType.TurnLeft });
 
 server.Actions.Add(new PlayerAction { player = player2, type = ActionType.TurnLeft });
 server.Actions.Add(new PlayerAction { player = player2, type = ActionType.MoveForward });
+
+
 Armor player1Armor = new Armor();
 Console.WriteLine(player1Armor.ArmorValue);
 Console.WriteLine($"игровое поле {((int)WorldHorizontalFieldX.coordinateX9)} по горизонтали на {((int)WorldVerticalFieldY.coordinateY9)} по вертикали ");
@@ -68,55 +74,80 @@ player1.GameWorld = server;
 player2.GameWorld = server;
 player3.GameWorld = server;
 player4.GameWorld = server;
-for (int i = 0; i < 1; i++)
+mapView.PaintMap();
+for (int j = 0; j < server.RoundMaxAction; j++)
 {
-    foreach (var action in server.Actions)
+    for (int i = 0; i <1; i++)
     {
 
-        if (action.player.ActionCounter < 1)
+        foreach (var action in server.Actions)
         {
-            if (action.type == ActionType.MoveForward)
+
+            if (action.player.ActionCounter < j)
             {
-                action.player.MoveForward();
-                action.player.ActionCounter++;
-                //server.Actions.Remove(action);
+                if (action.type == ActionType.MoveForward)
+                {
+                    action.player.MoveForward();
+                    action.player.ActionCounter++;
+                    //server.Actions.Remove(action);
+
+                }
+                else if (action.type == ActionType.TurnLeft)
+                {
+                    action.player.TurnLeft();
+                    action.player.ActionCounter++;
+
+                }
+                else if (action.type == ActionType.TurnRight)
+                {
+                    action.player.TurnRight();
+                    action.player.ActionCounter++;
+                }
+                else if (action.type == ActionType.MoveBack)
+                {
+                    action.player.MoveBack();
+                    action.player.ActionCounter++;
+                }
+                else if (action.type == ActionType.Shoot)
+                {
+                    action.player.Shoot();
+                    action.player.ActionCounter++;
+                }
+                mapView.PaintMap();
 
             }
-            else if (action.type == ActionType.TurnLeft)
-            {
-                action.player.TurnLeft();
-                action.player.ActionCounter++;
-                
-            }
-            else if (action.type == ActionType.TurnRight)
-            {
-                action.player.TurnRight();
-                action.player.ActionCounter++;
-            }
-            else if (action.type == ActionType.MoveBack)
-            {
-                action.player.MoveBack();
-                action.player.ActionCounter++;
-            }
-            else if (action.type == ActionType.Shoot)
-            {
-                action.player.Shoot();
-                action.player.ActionCounter++;
-            }
+            
+            
 
 
         }
+        
 
+       
     }
-    foreach (Player player in server.Players)
+    foreach (var action in server.Actions)
     {
-        player.ActionCounter = 0;
+        action.player.ActionCounter = 0;
     }
-    mapView.PaintMap();
-    
-
 }
-mapView.PaintMap();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //player1.TurnLeft();
 
 //player2.TurnLeft();
@@ -129,5 +160,5 @@ mapView.PaintMap();
 //player4.Shoot();
 
 
-mapView.PaintMap();
+
 
