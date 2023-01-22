@@ -49,15 +49,13 @@ GameWorld server = new GameWorld();
 
 server.Actions.Add(new PlayerAction { player = player1, type = ActionType.MoveForward });
 server.Actions.Add(new PlayerAction { player = player1, type = ActionType.TurnLeft });
-server.Actions.Add(new PlayerAction { player = player1, type = ActionType.TurnLeft });
-server.Actions.Add(new PlayerAction { player = player1, type = ActionType.TurnLeft });
-
+server.Actions.Add(new PlayerAction { player = player1, type = ActionType.MoveForward });
+server.Actions.Add(new PlayerAction { player = player1, type = ActionType.MoveForward });
 //server.Actions.Add(new PlayerAction { player = player1, type = ActionType.TurnLeft });
 
 server.Actions.Add(new PlayerAction { player = player2, type = ActionType.TurnLeft });
 server.Actions.Add(new PlayerAction { player = player2, type = ActionType.MoveForward });
-server.Actions.Add(new PlayerAction { player = player2, type = ActionType.TurnLeft });
-server.Actions.Add(new PlayerAction { player = player2, type = ActionType.TurnLeft });
+
 
 
 Armor player1Armor = new Armor();
@@ -79,70 +77,81 @@ player2.GameWorld = server;
 player3.GameWorld = server;
 player4.GameWorld = server;
 mapView.PaintMap();
+
+
 for (int j = 0; j < server.RoundMaxAction; j++)
 {
-    
-// for (int i = 0; i <1; i++)
-//{
-int actionIndex=0;
-foreach (var action in server.Actions.ToList())
-{
 
-    if (action.player.ActionCounter < 1)
+    // for (int i = 0; i <1; i++)
+    //{
+
+    foreach (var action in server.Actions.ToList())
+
     {
-        if (action.type == ActionType.MoveForward && server.Actions.Count >0)
+
+
+        if (action.player.ActionCounter < 1)
         {
-            action.player.MoveForward();
-            action.player.ActionCounter++;
-            mapView.PaintMap();
-            server.Actions.RemoveAt(actionIndex);
-            actionIndex = 0;
+
+
+            if (action.type == ActionType.MoveForward && server.Actions.Count > 0)
+            {
+                
+                action.player.MoveForward();
+                action.player.ActionCounter++;
+                mapView.PaintMap();
+                server.Actions.RemoveAt(server.Actions.IndexOf(action));
+
+            }
+            else if (action.type == ActionType.TurnLeft && server.Actions.Count > 0)
+            {
+                
+                action.player.TurnLeft();
+                action.player.ActionCounter++;
+                mapView.PaintMap();
+                server.Actions.RemoveAt(server.Actions.IndexOf(action));
+
+            }
+            else if (action.type == ActionType.TurnRight && server.Actions.Count > 0)
+            {
+                
+                action.player.TurnRight();
+                action.player.ActionCounter++;
+                mapView.PaintMap();
+                server.Actions.RemoveAt(server.Actions.IndexOf(action));
+
+            }
+            else if (action.type == ActionType.MoveBack && server.Actions.Count > 0)
+            {
+                
+                action.player.MoveBack();
+                action.player.ActionCounter++;
+                mapView.PaintMap();
+                server.Actions.RemoveAt(server.Actions.IndexOf(action));
+
+            }
+            else if (action.type == ActionType.Shoot && server.Actions.Count != 0)
+            {
+                
+                action.player.Shoot();
+                action.player.ActionCounter++;
+                mapView.PaintMap();
+                server.Actions.RemoveAt(server.Actions.IndexOf(action));
+
+            }
+
+
 
         }
-        else if (action.type == ActionType.TurnLeft && server.Actions.Count > 0)
-        {
-            action.player.TurnLeft();
-            action.player.ActionCounter++;
-            mapView.PaintMap();
-            server.Actions.RemoveAt(actionIndex);
-            actionIndex = 0;
-        }
-        else if (action.type == ActionType.TurnRight && server.Actions.Count > 0)
-        {
-            action.player.TurnRight();
-            action.player.ActionCounter++;
-            mapView.PaintMap();
-            server.Actions.RemoveAt(actionIndex);
-            actionIndex = 0;
-        }
-        else if (action.type == ActionType.MoveBack && server.Actions.Count > 0)
-        {
-            action.player.MoveBack();
-            action.player.ActionCounter++;
-            mapView.PaintMap();
-            server.Actions.RemoveAt(actionIndex);
-            actionIndex = 0;
-        }
-        else if (action.type == ActionType.Shoot && server.Actions.Count != 0)
-        {
-            action.player.Shoot();
-            action.player.ActionCounter++;
-            mapView.PaintMap();
-            server.Actions.RemoveAt(actionIndex);
-            actionIndex = 0;
-        }
-        
-        
+
+
+
 
     }
-
-
-
-
-      }
-foreach(var Players in server.Players)
+    foreach (var Players in server.Players)
     {
         Players.EndStep();
+        
     }
 
 
