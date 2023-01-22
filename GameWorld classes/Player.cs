@@ -112,7 +112,11 @@ namespace GameWorld_classes
             
 
         }
-        
+        public void EndStep()
+        {
+            ActionCounter = 0;
+        }
+
         public Player(Guid id, string nickname, Weapon weapon,Armor armor,PlayerPosition position)
         {
             this.id = id;

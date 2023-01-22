@@ -32,10 +32,7 @@ namespace GameWorld_classes
 
         }
         
-        public void EndRound(Player player)
-        {
-            player.ActionCounter = 0;
-        }
+       
         public void Shoot(Player player)
         {
             if (player.Weapon.Ammo > 0)
