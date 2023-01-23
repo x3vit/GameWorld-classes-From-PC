@@ -46,11 +46,15 @@ player4.Position.X = 4;
 player4.Position.Y = 4;
 
 GameWorld server = new GameWorld();
-
+server.Actions.Add(new PlayerAction { player = player3, type = ActionType.MoveForward });
+server.Actions.Add(new PlayerAction { player = player3, type = ActionType.MoveForward });
+server.Actions.Add(new PlayerAction { player = player3, type = ActionType.MoveForward });
+server.Actions.Add(new PlayerAction { player = player3, type = ActionType.MoveForward });
+server.Actions.Add(new PlayerAction { player = player3, type = ActionType.TurnLeft});
+server.Actions.Add(new PlayerAction { player = player3, type = ActionType.MoveForward });
 server.Actions.Add(new PlayerAction { player = player1, type = ActionType.MoveForward });
 server.Actions.Add(new PlayerAction { player = player1, type = ActionType.TurnLeft });
-server.Actions.Add(new PlayerAction { player = player1, type = ActionType.MoveForward });
-server.Actions.Add(new PlayerAction { player = player1, type = ActionType.MoveForward });
+
 //server.Actions.Add(new PlayerAction { player = player1, type = ActionType.TurnLeft });
 
 server.Actions.Add(new PlayerAction { player = player2, type = ActionType.TurnLeft });
@@ -156,39 +160,7 @@ for (int j = 0; j < server.RoundMaxAction; j++)
 
 
 }
-//foreach (var action in server.Actions)
-//{
-//    action.player.ActionCounter = 0;
-//}
-//}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//player1.TurnLeft();
-
-//player2.TurnLeft();
-
-//player2.TurnLeft();
-//player4.TurnRight();
-//player1.Shoot();
-//player2.Shoot();
-//player3.Shoot();
-//player4.Shoot();
 
 
 

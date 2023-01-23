@@ -19,7 +19,7 @@ namespace GameWorld_classes
         public int Lenght = 10;
         public int Height = 10;
         public int ModelAngle;
-        public int RoundMaxAction=10;
+        public int RoundMaxAction=5;
 
         public GameWorld()
         { }
