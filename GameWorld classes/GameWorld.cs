@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GameWorld_classes.weapons;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.AccessControl;
@@ -34,7 +35,8 @@ namespace GameWorld_classes
         
        
         public void Shoot(Player player)
-        {
+        { 
+            
             if (player.Weapon.Ammo > 0)
             {
                 player.Weapon.Ammo--;
@@ -42,7 +44,7 @@ namespace GameWorld_classes
             else
             {
                 player.Weapon.Reload();
-                //player.ActionCounter++;                     ////Vajno protestit
+                
             }
             
             if (player.Position.Angle == 0)

@@ -47,6 +47,7 @@ player4.Position.Y = 4;
 
 GameWorld server = new GameWorld();
 server.Actions.Add(new PlayerAction { player = player3, type = ActionType.MoveForward });
+server.Actions.Add(new PlayerAction { player = player3, type = ActionType.Shoot });
 server.Actions.Add(new PlayerAction { player = player3, type = ActionType.MoveForward });
 server.Actions.Add(new PlayerAction { player = player3, type = ActionType.MoveForward });
 server.Actions.Add(new PlayerAction { player = player3, type = ActionType.MoveForward });

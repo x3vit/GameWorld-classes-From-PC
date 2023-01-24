@@ -8,5 +8,6 @@ namespace GameWorld_classes.weapons
 {
     internal class Glock : Weapon
     {
+       
     }
 }

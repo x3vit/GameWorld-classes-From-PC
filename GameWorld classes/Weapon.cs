@@ -13,6 +13,7 @@ namespace GameWorld_classes
         public int Dmg { get; set; }
         public int Ammo { get; set; }
         public int Price { get; set; }
+        
         public void Reload()
         {
             Console.WriteLine("перезарядка");
