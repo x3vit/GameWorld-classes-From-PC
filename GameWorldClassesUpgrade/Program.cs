@@ -3,6 +3,7 @@ using GameWorld_classes;
 using GameWorldClassesUpgrade;
 
 Console.WriteLine("Hello, World!");
+GameScreen gameScreen = new GameScreen();
 Console.CursorVisible = false;
 //GameScreen mapScreen = new GameScreen();
 char[,] map =
@@ -62,7 +63,7 @@ while (true)
     }
 
     Console.SetCursorPosition( player1position.Y, player1position.X);
-    GameScreen gameScreen = new GameScreen();
+   
     Console.Write($"{ player1.Model}");
     ConsoleKeyInfo charKey = Console.ReadKey();
     //switch (charKey.Key)
