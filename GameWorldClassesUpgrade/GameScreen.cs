@@ -9,8 +9,8 @@ namespace GameWorldClassesUpgrade
 {
     internal class GameScreen
     {
-      public static  char[,] map =
-{
+        public static char[,] map =
+  {
     {'#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#',},
     {'#','A','A','A','#',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','#',},
     {'#',' ',' ',' ','#',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','#','#','#','#',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','#',},
@@ -35,19 +35,21 @@ namespace GameWorldClassesUpgrade
     {'#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#',},
 
 };
-       public int mapVerticalLenght = map.GetLength(0);
-       public int mapHorizontalLenght = map.GetLength(1);
+        public int mapVerticalLenght = map.GetLength(0);
+        public int mapHorizontalLenght = map.GetLength(1);
+        public void PaintMap()
+        {
+            for (int i = 0; i < mapVerticalLenght; i++)
+            {
+                for (int j = 0; j < mapHorizontalLenght; j++)
+                {
+                    Console.Write(map[i, j]);
+                }
+                Console.WriteLine();
+            }
+        }
     }
-    //public void PaintMap()
-    //{
-    //    for (int i = 0; i < mapScreen.mapVerticalLenght; i++)
-    //    {
-    //        for (int j = 0; j < mapScreen.mapHorizontalLenght; j++)
-    //        {
-    //            Console.Write(map[i, j]);
-    //        }
-    //        Console.WriteLine();
-    //    }
+   
 }
 
 //for (int i = 0; i < mapScreen.mapVerticalLenght; i++)
