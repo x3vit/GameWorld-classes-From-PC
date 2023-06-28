@@ -5,6 +5,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace GameWorld_classes
 {
     internal class Player
@@ -16,6 +17,7 @@ namespace GameWorld_classes
         public int Frags;
         public int Deaths;
         public int HP;
+        public int MaxHP;
         public Armor Armor;
         public PlayerPosition Position;
         public char Model = '@';
@@ -23,10 +25,7 @@ namespace GameWorld_classes
         public char ModelViewBot = 'V';
         public char ModelViewRight = '>';
         public char ModelViewLeft = '<';
-        //public string Action;
-        //GameScreen MapView;
-        // public GameWorld GameWorld;
-        public int ActionCounter;
+        
         public Player()
         {
             id = Guid.NewGuid();
@@ -44,9 +43,27 @@ namespace GameWorld_classes
             SetDefaultValues();
 
         }
+        public void TakeDamage(Weapon weapon)
+        {
+            if(Armor.ArmorValue <= 0)
+            HP=HP-weapon.Dmg;
+            else
+            {
+                HP=HP-weapon.Dmg/2;
+                Armor.ArmorValue -= weapon.Dmg/2;
+                if(Armor.ArmorValue < 0)
+                { Armor.ArmorValue = 0; }
+            }
+        }
+        public void MoveTop()
+        {
+
+            Position.X--;
+        }
         private void SetDefaultValues()
         {
-            HP = 100;
+            HP = 10;
+            MaxHP = 20;
             Ammo = Weapon.Ammo;
         }
        

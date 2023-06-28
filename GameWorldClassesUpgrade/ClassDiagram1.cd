@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="GameWorld_classes.Weapon" Collapsed="true">
+    <Position X="6.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAgQAAAAAAAAAAAAQAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>Weapon.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameWorldClassesUpgrade.Map" Collapsed="true">
+    <Position X="8.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAIAAAAAAAAAAAAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>Map.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameWorld_classes.Player" Collapsed="true">
+    <Position X="9.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACABBAAAAAAAAAAgAAAAAAABQAAAAAggEAgAAAACEkA=</HashCode>
+      <FileName>Player.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameWorld_classes.PlayerPosition" Collapsed="true">
+    <Position X="11.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAYAA=</HashCode>
+      <FileName>PlayerPosition.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameWorld_classes.Armor" Collapsed="true">
+    <Position X="6.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAQAAAQAAAAAAA=</HashCode>
+      <FileName>Armor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameWorldClassesUpgrade.GameScreen" Collapsed="true">
+    <Position X="8" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GameScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameWorldClassesUpgrade.GameWorld" Collapsed="true">
+    <Position X="6.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GameWorld.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameWorld_classes.weapons.AK47" Collapsed="true">
+    <Position X="4.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>weapons\AK47.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameWorld_classes.weapons.AWP" Collapsed="true">
+    <Position X="13.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>weapons\AWP.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameWorld_classes.weapons.CTWeapon" Collapsed="true">
+    <Position X="20.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>weapons\CTWeapon.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameWorld_classes.weapons.Glock" Collapsed="true">
+    <Position X="10.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>weapons\Glock.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameWorld_classes.weapons.M16A1" Collapsed="true">
+    <Position X="16" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>weapons\M16A1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameWorld_classes.weapons.Scout" Collapsed="true">
+    <Position X="22.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>weapons\Scout.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameWorld_classes.weapons.Shotgun" Collapsed="true">
+    <Position X="11.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>weapons\Shotgun.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameWorld_classes.weapons.TWeapon" Collapsed="true">
+    <Position X="18.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>weapons\TWeapon.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameWorld_classes.weapons.USP" Collapsed="true">
+    <Position X="25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>weapons\USP.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
