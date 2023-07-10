@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GameWorldClassesUpgrade;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
@@ -10,156 +11,141 @@ namespace GameWorld_classes
 {
     internal class Player
     {
-        public Guid id;
-        public string Nickname;
-        public Weapon Weapon;
-        public int Ammo;
-        public int Frags;
-        public int Deaths;
-        public int HP;
-        public int MaxHP;
-        public Armor Armor;
-        public PlayerPosition Position;
-        public char Model = '@';
-        public char ModelViewTop = '^';
-        public char ModelViewBot = 'V';
-        public char ModelViewRight = '>';
-        public char ModelViewLeft = '<';
+        Random rnd = new Random();
         
+        private Guid _id;
+        private string _nickname;
+        private Weapon _weapon;
+        private int _ammo;
+        private int _frags;
+        private int _deaths;
+        private int _hP;
+        private int _maxHP;
+        private Armor _armor;
+        private PlayerPosition _position;
+        private char _basicModel = '@';
+        private char _model='@';
+        private char _modelViewTop = '^';
+        private char _modelViewBot = 'V';
+        private char _modelViewRight = '>';
+        private char _modelViewLeft = '<';
+        public string configPath = @"E:\temp\defaultConfig.txt";
+        public PlayerConfig Config;
+
         public Player()
         {
-            id = Guid.NewGuid();
-            Nickname = "unknown";
-            Weapon = new Weapon();
+            _id = Guid.NewGuid();
+            _nickname = "unknown";
+            _weapon = new Weapon();
 
 
-            Frags = 0;
-            Deaths = 0;
+            _frags = 0;
+            _deaths = 0;
 
-            Armor = new Armor();
-            //Position=new PlayerPosition();
+            _armor = new Armor();
+            _position = new PlayerPosition(0, 0);
+            Config = new PlayerConfig();
+
+            SetDefaultValues();
+
+        }
+        public Player(string nickname)
+        {
+            _id = Guid.NewGuid();
+            _nickname = nickname;
+            _weapon = new Weapon();
+
+
+            _frags = 0;
+            _deaths = 0;
+
+            _armor = new Armor();
+            _position = new PlayerPosition(0, 0);
 
 
             SetDefaultValues();
 
         }
+        public string Nickname { get { return _nickname; } }  
+        
+        public Weapon Weapon { get { return _weapon; } }
+        
+        public int Ammo { get { return _ammo; } }
+        public Armor Armor { get { return _armor; } }
+        
+        public int Frags { get { return _frags; } }
+       
+        public int Deaths { get { return _deaths; } }
+        public int HP { get { return _hP; } }
+        public int MaxHP { get { return _maxHP; } }
+        
+        public char Model { get { return _model; }  }    
+
+        public char ModelViewTop { get { return _modelViewTop; }  }
+        public char ModelViewBot { get { return _modelViewBot; } }
+        public char ModelViewLeft { get { return _modelViewLeft; } }
+        public char ModelViewRight { get { return _modelViewRight; } }  
+        public PlayerPosition Position { get { return _position; } }
+            
+        public void PickUpArmor()
+        {
+            _armor.ArmorValue += 50;                                   //set otkritii v armore (
+        }
+        public void ChangePlayerModel(char model)
+        {
+            _model = model;
+        }
         public void TakeDamage(Weapon weapon)
         {
-            if(Armor.ArmorValue <= 0)
-            HP=HP-weapon.Dmg;
+            if(_armor.ArmorValue <= 0)
+            _hP=_hP-weapon.Dmg;
             else
             {
-                HP=HP-weapon.Dmg/2;
-                Armor.ArmorValue -= weapon.Dmg/2;
-                if(Armor.ArmorValue < 0)
-                { Armor.ArmorValue = 0; }
+                _hP=_hP-weapon.Dmg/2;
+                _armor.ArmorValue -= weapon.Dmg/2;
+                if(_armor.ArmorValue < 0)
+                { _armor.ArmorValue = 0; }
             }
         }
-        public void MoveTop()
-        {
 
-            Position.X--;
+        public void TakeMega()
+        {
+            _hP += 10;
+        }
+        public void TakeWeapon(Weapon weapon)
+        {
+            _weapon = weapon;
+        }
+        public void ChangeNickName(string name)
+        {
+            _nickname=name;
+        }
+
+
+        public void SetConfigPath(string path)
+        {
+           configPath=path;
+        }
+        public void Respawn()
+        {
+            
+            _hP = 10;
+            _armor.ArmorValue = 50;
+            _position.RespawnPosition();
+            ChangePlayerModel(_basicModel);
         }
         private void SetDefaultValues()
         {
-            HP = 10;
-            MaxHP = 20;
-            Ammo = Weapon.Ammo;
+            _hP = 10;
+            _maxHP = 20;
+            _position.RespawnPosition();
+            
         }
        
     }
 }
 
-       // public void MoveForward()
-       // {
-       //     if (Position.Angle == 0)
-       //     {
-       //         Position.Y = Position.Y + 1;
-       //     }
-       //     if (Position.Angle == 180)
-       //     {
-       //         Position.Y = Position.Y - 1;
-       //     }
-       //     if (Position.Angle == 270 && Position.X >= 0)
-       //     {
-       //         Position.X= Position.X - 1;
-       //     }
-       //     if (Position.Angle ==90 && Position.X >=0)
-       //     {
-       //         Position.X = Position.X + 1;
-       //     }
-       //     if (Position.Y < 0) { Position.Y = 0; } 
-       //     if (Position.X < 0) { Position.X = 0; }
-       //     if(Position.Y > 9) { Position.Y = 10; }
-       //     if(Position.X > 9) { Position.X = 10; }
-
-
-
-// }
-// public void MoveBack()
-// {
-//     if (Position.Angle == 0)
-//     {
-//         Position.Y = Position.Y + 1;
-//     }
-//     if (Position.Angle == 180)
-//     {
-//         Position.Y = Position.Y - 1;
-//     }
-//     if (Position.Angle == 270 && Position.X > 0)
-//     {
-//         Position.X = Position.X - 1;
-//     }
-//     if (Position.Angle == 90 && Position.X > 0)
-//     {
-//         Position.X = Position.X + 1;
-//     }
-//     if (Position.Y < 0) { Position.Y = 0; }
-//     if (Position.X < 0) { Position.X = 0; }
-// }
-// public void TurnLeft()
-// {
-//     Position.Angle = (Position.Angle + 90);//%360;
-//    if (Position.Angle > 360) { Position.Angle=Position.Angle-360; }
-
-// }
-//public void TurnRight()
-// {
-//     Position.Angle = (Position.Angle - 90);//%360;
-//     if (Position.Angle < 0) { Position.Angle = 360 + Position.Angle; }
-
-// }
-// public void Respawn()//PlayerPosition position)
-// {
-//     this.Position.X = 0;// Position.X;
-//     this.Position.Y = 0;// Position.Y;
-//     SetDefaultValues();
-
-
-// }
-// public void EndStep()
-// {
-//     ActionCounter = 0;
-// }
-
-// public Player(Guid id, string nickname, Weapon weapon,Armor armor,PlayerPosition position)
-// {
-//     this.id = id;
-//     Nickname = nickname;
-//     Weapon = weapon;
-//     Armor = armor;
-//     Position = position;
-// }
-
-//public void Shoot()
-// {
-//     GameWorld.Shoot(this);
-// }
-
-// }
-
-//}
-
+      
 
 
 

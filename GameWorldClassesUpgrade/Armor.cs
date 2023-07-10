@@ -9,15 +9,20 @@ namespace GameWorld_classes
     internal class Armor
     {
         public string Name; //{ get; set; }
-        public int ArmorValue; //{ get; set; }                             // возможно лучше через uint
+        private int _armorValue; //{ get; set; }                             // возможно лучше через uint
         public int DmgReductionMultiplier; //{ get; set; }
 
         public Armor()
         {
             Name = "white armor";
-            ArmorValue = 50;
+            _armorValue = 50;
             DmgReductionMultiplier = 2;
         }
 
+        public int ArmorValue
+        {
+            get { return _armorValue; }
+            set { _armorValue = value; }
+        }
     }
 }

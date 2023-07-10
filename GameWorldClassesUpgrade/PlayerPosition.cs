@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,25 +9,44 @@ namespace GameWorld_classes
 {
     internal class PlayerPosition
     {
-        public int X = 0;
-        public int Y = 0;
-        public int Angle=0;
 
-        public PlayerPosition()
+
+        Random random = new Random();
+       
+       
+
+        
+        public int X { get;private set; }
+        public int Y { get;private set; }  
+        public PlayerPosition(int x, int y)
         {
-            X = 0;
-            Y = 0;
-            Angle= 0;
+            X = x;
+            Y = y;
         }
-        public PlayerPosition(int playerPositionX, int playerPositionY, int playerViewAngle)
+        
+        public void RespawnPosition()
         {
-            X = playerPositionX;
-            Y = playerPositionY;
-            Angle = playerViewAngle;
-            }
-
-
+            X =random.Next(2,4);
+            Y =random.Next(2,4);
         }
+        public void MoveTop()
+        {
+            X--;
+        }
+        public void MoveDown()
+        {
+            X++;
+        }
+        public void MoveLeft()
+        {
+            Y--;
+        }
+        public void MoveRight()
+        {
+            Y++;
+        }
+
     }
+}
 
 
