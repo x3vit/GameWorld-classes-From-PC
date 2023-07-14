@@ -15,18 +15,26 @@ GameWorld gameWorld = new GameWorld();
 GameScreen gameScreen = new GameScreen();
 PlayerConfig playerConfig = new PlayerConfig();
 
-AK47 aK47 = new AK47() { Ammo = 30, Dmg = 30, Name = "AK47" };
+AK47 aK47 = new AK47() { Ammo = 30, Dmg = 30, Name = "AK47",Range = 2,BulletModel='$' };
 
 Map map = new Map();
+map.MapPath = @"E:\temp\defaultSmallMap.txt";
+gameWorld.Map.MapPath=map.MapPath;
+gameWorld.Map.DownloadMap(gameWorld.Map.MapPath);
+//               map.DownloadMap(map.MapPath);
+//map.MapPath = "mapsmall.txt";
 //map.CustomMap = ReadMap("mapsmall.txt");
-map.ReadMapJson("mapsmall.txt");
+//gameWorld.Map.DownloadMap(map.MapPath);
+//gameWorld.GameScreen.SetMap(map.GameMap);
+
 //string output = JsonConvert.SerializeObject(map.CustomMap);
 //File.WriteAllText(@"E:\temp\defaultSmallMap.txt",output);
 KeyboardInput inputPlayer2 = new KeyboardInput();
 inputPlayer2.CharKey=Console.ReadKey();
 KeyboardInput inputPlayer1 = new KeyboardInput();
 inputPlayer1.CharKey=Console.ReadKey();
-//gameScreen.ChangeMap( map.CustomMap);
+ 
+
 
 
 Console.SetCursorPosition(0, 0);
@@ -71,47 +79,7 @@ Task.Run(() =>
         Console.SetCursorPosition(player2.Position.Y, player2.Position.X);
 
         inputPlayer2.MovingEngine(charKey.Key, player2,gameScreen/*,ConsoleKey.R,ConsoleKey.F,ConsoleKey.D,ConsoleKey.G*/);
-        //switch (charKey.Key)
-        //{
-
-        //    case ConsoleKey.W:
-        //        if (gameScreen.Map[player2.Position.X - 1, player2.Position.Y] != '#')
-               
-        //            player2.Position.MoveTop(); player2.ChangePlayerModel(player2.ModelViewTop);
-        //            break;
-                
-        //    case ConsoleKey.S:
-        //        if (gameScreen.Map[player2.Position.X + 1, player2.Position.Y] != '#')
-               
-        //            player2.Position.MoveDown(); player2.ChangePlayerModel(player2.ModelViewBot); ;
-        //            break;
-                
-        //    case ConsoleKey.A:
-        //        if (gameScreen.Map[player2.Position.X, player2.Position.Y - 1] != '#')
-                
-        //            player2.Position.MoveLeft(); player2.ChangePlayerModel(player2.ModelViewLeft); ;
-        //            break;
-                
-        //    case ConsoleKey.D:
-        //        if (gameScreen.Map[player2.Position.X, player2.Position.Y + 1] != '#')
-               
-        //            player2.Position.MoveRight(); player2.ChangePlayerModel(player2.ModelViewRight);
-        //            break;
-               
-        //    case ConsoleKey.Q:
-        //        if (player1.Model == '^' && gameScreen.Map[player2.Position.X - 1, player2.Position.Y] != '#')
-        //            gameScreen.Map[player2.Position.X - 1, player2.Position.Y] = '*';
-        //        else if
-
-        //            (player2.Model == '>' && gameScreen.Map[player2.Position.X, player2.Position.Y + 1] != '#')
-        //            gameScreen.Map[player2.Position.X, player2.Position.Y + 1] = '*';
-
-                
-
-        //        break;
-
-
-        //}
+       
         
         if (gameScreen.Map[player2.Position.X, player2.Position.Y] == 'A')
         {
@@ -154,6 +122,8 @@ while (true)
     Console.ForegroundColor = defaultColor;
 
     Console.SetCursorPosition(0, 0);
+    
+    gameScreen.SetMap(gameWorld.Map.GameMap);
     gameScreen.PaintMap();
 
 
@@ -166,39 +136,8 @@ while (true)
 
     ConsoleKeyInfo charKey = Console.ReadKey();
 
-    inputPlayer1.MovingEngine(charKey.Key, player1, gameScreen/*,ConsoleKey.UpArrow,ConsoleKey.DownArrow,ConsoleKey.LeftArrow,ConsoleKey.RightArrow*/);
-    //switch (charKey.Key)
-    //{
-    //    case ConsoleKey.UpArrow:
-    //        if (gameScreen.Map[player1.Position.X - 1, player1.Position.Y] != '#')
-    //            player1.Position.MoveTop(); player1.ChangePlayerModel(player1.ModelViewTop);
-    //        break;
-    //    case ConsoleKey.DownArrow:
-    //        if (gameScreen.Map[player1.Position.X + 1, player1.Position.Y] != '#')
-    //            player1.Position.MoveDown(); player1.ChangePlayerModel(player1.ModelViewBot);
-    //        break;
-    //    case ConsoleKey.LeftArrow:
-    //        if (gameScreen.Map[player1.Position.X, player1.Position.Y - 1] != '#')
-    //            player1.Position.MoveLeft(); player1.ChangePlayerModel(player1.ModelViewLeft);
-    //        break;
-    //    case ConsoleKey.RightArrow:
-    //        if (gameScreen.Map[player1.Position.X, player1.Position.Y + 1] != '#')
-    //            player1.Position.MoveRight(); player1.ChangePlayerModel(player1.ModelViewRight);
-    //        break;
-    //    case ConsoleKey.Spacebar:
-    //        if (player1.Model == '^' && gameScreen.Map[player1.Position.X - 1, player1.Position.Y] != '#')
-    //            gameScreen.Map[player1.Position.X - 1, player1.Position.Y] = '*';
-    //        else if
-
-    //            (player1.Model == '>' && gameScreen.Map[player1.Position.X, player1.Position.Y + 1] != '#')
-    //            gameScreen.Map[player1.Position.X, player1.Position.Y + 1] = '*';
-
-           
-
-    //        break;
-
-
-    //}
+    inputPlayer1.MovingEngine(charKey.Key, player1, gameScreen);
+   
 
 
     if (gameScreen.Map[player1.Position.X, player1.Position.Y] == 'A')

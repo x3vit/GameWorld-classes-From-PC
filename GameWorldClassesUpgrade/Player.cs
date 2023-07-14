@@ -36,7 +36,7 @@ namespace GameWorld_classes
         {
             _id = Guid.NewGuid();
             _nickname = "unknown";
-            _weapon = new Weapon();
+            //_weapon = new Weapon();
 
 
             _frags = 0;
@@ -109,8 +109,10 @@ namespace GameWorld_classes
         }
 
         public void TakeMega()
-        {
+        {if(_hP<MaxHP)
             _hP += 10;
+        else if (_hP>MaxHP)
+                { _hP -= MaxHP; }
         }
         public void TakeWeapon(Weapon weapon)
         {
@@ -139,7 +141,7 @@ namespace GameWorld_classes
             _hP = 10;
             _maxHP = 20;
             _position.RespawnPosition();
-            
+            _weapon = new Weapon();
         }
        
     }

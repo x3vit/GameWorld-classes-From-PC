@@ -8,6 +8,6 @@ namespace GameWorld_classes.weapons
 {
     internal class AK47 : Weapon
     {
-      
+       
     }
 }

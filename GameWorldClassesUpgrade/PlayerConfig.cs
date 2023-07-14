@@ -16,6 +16,7 @@ namespace GameWorldClassesUpgrade
         public ConsoleKey MoveLeftButton=ConsoleKey.A;
         public ConsoleKey MoveRightButton=ConsoleKey.D;
         public ConsoleKey MoveBotButton=ConsoleKey.S;
+        public ConsoleKey Shot=ConsoleKey.Spacebar;
         public ConsoleColor PlayerColor=ConsoleColor.Red;
         
         [Newtonsoft.Json.JsonIgnore]

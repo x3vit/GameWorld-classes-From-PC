@@ -13,7 +13,9 @@ namespace GameWorld_classes
         public int Dmg { get; set; }
         public int Ammo { get; set; }
         public int Price { get; set; }
-        
+
+        public int Range { get; set; }
+        public char BulletModel = '*';
         public void Reload()
         {
             Console.WriteLine("перезарядка");
@@ -27,6 +29,8 @@ namespace GameWorld_classes
             Name = "P250";
             Dmg = 20;
             Ammo = 10;
+            Range = 1;
+            BulletModel = '.';
         }
         public Weapon(string name, int dmg, int ammo,int price)
         {

@@ -19,7 +19,8 @@ namespace GameWorldClassesUpgrade
         private char _mega = 'M';
         private char _armor = 'A';
         private char _emptyField = 'o';
-
+        private Map _gameWorldMap=new Map();
+        private GameScreen _gameScreenWorld=new GameScreen();
         public int Timer
         {
             get { return _timer; }
@@ -34,7 +35,7 @@ namespace GameWorldClassesUpgrade
             get { return _players; }
         }
         public GameScreen GameScreen { get { return _gameScreen; } }
-        
+        public Map Map { get { return _gameWorldMap; } }
         public void RestartRound()
         {
             
@@ -43,8 +44,8 @@ namespace GameWorldClassesUpgrade
                 player.Respawn();
                 
             }
-           //GameScreen.RestartMap();
-           
+            //GameScreen.RestartMap();
+            _gameWorldMap.DownloadMap(_gameWorldMap.MapPath);
           
         }
        public async void ShowTimer(int cursorPositionX, int cursorPositionY, int maxRoundTime = 60)
@@ -60,6 +61,10 @@ namespace GameWorldClassesUpgrade
             Console.Clear();
             Console.Write("новый раунд");
             RestartRound();
+        }
+        public void CheckShot()
+        {
+
         }
         // состояигие катки часы,спавны
     }

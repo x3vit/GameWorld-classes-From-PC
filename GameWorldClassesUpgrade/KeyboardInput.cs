@@ -93,7 +93,14 @@ namespace GameWorldClassesUpgrade
 
                     break;
 
+                case ConsoleKey when key == player.Config.Shot:
+                    gameScreen.ShotPatterns(player);
                     
+                    break;
+
+
+
+
 
 
             }
