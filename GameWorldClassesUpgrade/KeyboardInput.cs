@@ -15,6 +15,8 @@ namespace GameWorldClassesUpgrade
 
         private Player _player;
         private GameScreen _gameScreen;
+        private GameWorld _gameWorld;
+        //public Shot Shot;
 
 
         public Player Player
@@ -25,9 +27,13 @@ namespace GameWorldClassesUpgrade
         {
             get { return _gameScreen; }
         }
+        public GameWorld GameWorld
+        {
+                get { return _gameWorld; }
+        }
         public bool CheckTopWall()
         {
-            
+
             if (_gameScreen.Map[_player.Position.X - 1, _player.Position.Y] != '#')
             {
                 return false;
@@ -63,39 +69,47 @@ namespace GameWorldClassesUpgrade
 
         }
 
-       public Player MovingEngine(ConsoleKey key,Player player,GameScreen gameScreen/*,ConsoleKey up=ConsoleKey.W, ConsoleKey down = ConsoleKey.S, ConsoleKey left = ConsoleKey.A, ConsoleKey right = ConsoleKey.D*/)
+        public Player MovingEngine(ConsoleKey key, Player player, GameScreen gameScreen,GameWorld gameWorld/*,ConsoleKey up=ConsoleKey.W, ConsoleKey down = ConsoleKey.S, ConsoleKey left = ConsoleKey.A, ConsoleKey right = ConsoleKey.D*/)
         {
             switch (key)
             {
-                
-                case ConsoleKey when key==player.Config.MoveTopButton: 
-                    if (gameScreen.Map[player.Position.X - 1, player.Position.Y] != '#')
-                        
-                        player.Position.MoveTop(); player.ChangePlayerModel(player.ModelViewTop);
+
+                case ConsoleKey when key == player.Config.MoveTopButton:
+                    if (gameScreen.Map[player.Position.X - 1, player.Position.Y] != '#' && player.HP>0)
+                    {
+                        player.Position.MoveTop();
+                        player.ChangeDirection(Player.DirectionTop);
+                    }
                     break;
 
-                case ConsoleKey when key ==player.Config.MoveBotButton:
-                    if (gameScreen.Map[player.Position.X + 1, player.Position.Y] != '#')
-
-                        player.Position.MoveDown(); player.ChangePlayerModel(player.ModelViewBot); ;
+                case ConsoleKey when key == player.Config.MoveBotButton:
+                    if (gameScreen.Map[player.Position.X + 1, player.Position.Y] != '#' && player.HP > 0)
+                    {
+                        player.Position.MoveDown();
+                        player.ChangeDirection(Player.DirectionBottom); 
+                    }
                     break;
 
-                case ConsoleKey when key==player.Config.MoveLeftButton:
-                    if (gameScreen.Map[player.Position.X, player.Position.Y - 1] != '#')
-
-                        player.Position.MoveLeft(); player.ChangePlayerModel(player.ModelViewLeft); ;
+                case ConsoleKey when key == player.Config.MoveLeftButton:
+                    if (gameScreen.Map[player.Position.X, player.Position.Y - 1] != '#' && player.HP > 0)
+                    {
+                        player.Position.MoveLeft();
+                        player.ChangeDirection(Player.DirectionLeft);
+                    }
                     break;
 
-                case ConsoleKey when key==player.Config.MoveRightButton:
-                    if (gameScreen.Map[player.Position.X, player.Position.Y + 1] != '#')
-
-                        player.Position.MoveRight(); player.ChangePlayerModel(player.ModelViewRight);
-
+                case ConsoleKey when key == player.Config.MoveRightButton:
+                    if (gameScreen.Map[player.Position.X, player.Position.Y + 1] != '#' && player.HP > 0)
+                    {
+                        player.Position.MoveRight();
+                        player.ChangeDirection(Player.DirectionRight);
+                    }
                     break;
 
                 case ConsoleKey when key == player.Config.Shot:
                     gameScreen.ShotPatterns(player);
-                    
+                    gameWorld.CreateShot(player,gameWorld);
+
                     break;
 
 
@@ -147,5 +161,6 @@ namespace GameWorldClassesUpgrade
 
 
         //}
+       
     }
 }

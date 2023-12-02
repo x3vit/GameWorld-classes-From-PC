@@ -11,11 +11,12 @@ using Newtonsoft.Json;
 Console.CursorVisible = false;
 
 GameWorld gameWorld = new GameWorld();
-
+Shot shot = new Shot();
 GameScreen gameScreen = new GameScreen();
 PlayerConfig playerConfig = new PlayerConfig();
 
-AK47 aK47 = new AK47() { Ammo = 30, Dmg = 30, Name = "AK47",Range = 2,BulletModel='$' };
+AK47 aK47 = new AK47() { Ammo = 30, Dmg = 8, Name = "AK47",Range = 2,BulletModel='$' };
+Weapon listWeaponModel=new Weapon();
 
 Map map = new Map();
 map.MapPath = @"E:\temp\defaultSmallMap.txt";
@@ -30,6 +31,7 @@ gameWorld.Map.DownloadMap(gameWorld.Map.MapPath);
 //string output = JsonConvert.SerializeObject(map.CustomMap);
 //File.WriteAllText(@"E:\temp\defaultSmallMap.txt",output);
 KeyboardInput inputPlayer2 = new KeyboardInput();
+
 inputPlayer2.CharKey=Console.ReadKey();
 KeyboardInput inputPlayer1 = new KeyboardInput();
 inputPlayer1.CharKey=Console.ReadKey();
@@ -37,15 +39,23 @@ inputPlayer1.CharKey=Console.ReadKey();
 
 
 
+
 Console.SetCursorPosition(0, 0);
 
 Player player1 = new Player ("Chubrik");
+AlivePlayer alivePlayer1 = new AlivePlayer();
+AlivePlayer alivePlayer2 = new AlivePlayer();
+//ZombiePlayer zombiePlayer1 = new ZombiePlayer();
+//ZombiePlayer zombiePlayer2 = new ZombiePlayer();
+
+
 player1.Config = new PlayerConfig {};
 player1.SetConfigPath(@"E:\temp\player1Config.txt");
 
 Player player2 = new Player ("Chubrik2");
 player2.Config = new PlayerConfig();
 player2.SetConfigPath(@"E:\temp\player2Config.txt");
+
 
 
 gameWorld.Players.Add(player1);
@@ -77,10 +87,10 @@ Task.Run(() =>
         
         Console.ForegroundColor = defaultColor;
         Console.SetCursorPosition(player2.Position.Y, player2.Position.X);
-
-        inputPlayer2.MovingEngine(charKey.Key, player2,gameScreen/*,ConsoleKey.R,ConsoleKey.F,ConsoleKey.D,ConsoleKey.G*/);
-       
         
+        inputPlayer2.MovingEngine(charKey.Key, player2,gameScreen,gameWorld/*,ConsoleKey.R,ConsoleKey.F,ConsoleKey.D,ConsoleKey.G*/);
+        //gameWorld.CheckDmg(player1);                                                // dodymat v gamescreen
+         
         if (gameScreen.Map[player2.Position.X, player2.Position.Y] == 'A')
         {
             gameScreen.Map[player2.Position.X, player2.Position.Y] = 'o';
@@ -99,7 +109,7 @@ Task.Run(() =>
             player2.TakeWeapon(aK47);
 
         }
-        
+        listWeaponModel.BulletWeaponModels.Add(player2.Weapon.BulletModel);
     }
 });
 while (true)
@@ -124,7 +134,10 @@ while (true)
     Console.SetCursorPosition(0, 0);
     
     gameScreen.SetMap(gameWorld.Map.GameMap);
+    //gameWorld.CheckDmg();
+    gameWorld._gameScreen=gameScreen;
     gameScreen.PaintMap();
+    //gameScreen.ResetShotMap();
 
 
     Console.SetCursorPosition(player1.Position.Y, player1.Position.X);
@@ -136,8 +149,8 @@ while (true)
 
     ConsoleKeyInfo charKey = Console.ReadKey();
 
-    inputPlayer1.MovingEngine(charKey.Key, player1, gameScreen);
-   
+    inputPlayer1.MovingEngine(charKey.Key, player1, gameScreen,gameWorld);
+    //gameWorld.CheckDmg(player2);
 
 
     if (gameScreen.Map[player1.Position.X, player1.Position.Y] == 'A')
@@ -158,7 +171,7 @@ while (true)
         player1.TakeWeapon(aK47);
 
     }
-
+    listWeaponModel.BulletWeaponModels.Add(player1.Weapon.BulletModel);
     Console.Clear();
 }
 

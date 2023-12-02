@@ -69,7 +69,7 @@ namespace GameWorldClassesUpgrade
         public char[,] ShotMap
         {
             get { return _shotMap; }
-            private set { _shotMap = value; }     //xz ne nyjno
+            //private set { _shotMap = value; }     //xz ne nyjno
         }
 
         public char[,] SetMap(char[,] newMap)
@@ -100,16 +100,48 @@ namespace GameWorldClassesUpgrade
                 Console.WriteLine();
 
             }
+            if (_shotMap != null)
+            { ResetShotMap(); }
+            
         }
-        private void ResultMap()
+        public void ResetShotMap()
         {
             for (int y = 0; y < _mapDefault.GetLength(0); y++)
             {
                 for (int x = 0; x < _mapDefault.GetLength(1); x++)
                 {
-                    if (_shotMap[y,x]!='\0' && _mapDefault[y,x]!='#')
+                    if (_shotMap[y, x] != '\0' && _mapDefault[y, x] != '#')
                     {
-                        _mapDefault[y,x] = _shotMap[y,x];
+                        _mapDefault[y, x] = ' ';
+                    }
+                }
+            }
+        }
+        //public void ResetShotMap() //with wall
+        //{
+        //    for (int y = 0; y < _mapDefault.GetLength(0); y++)
+        //    {
+        //        for (int x = 0; x < _mapDefault.GetLength(1); x++)
+        //        {
+        //            if (_shotMap[y, x] != '\0')
+        //            {
+        //                _mapDefault[y, x] = ' ';
+        //            }
+        //        }
+        //    }
+        //}
+        private void ResultMap()
+        {
+            if (_shotMap != null)
+            {
+                for (int y = 0; y < _mapDefault.GetLength(0); y++)
+                {
+                    for (int x = 0; x < _mapDefault.GetLength(1); x++)
+                    {
+                        if (_shotMap[y, x] != '\0' && _mapDefault[y, x] != '#')
+                        {
+                            _mapDefault[y, x] = _shotMap[y, x];
+                        }
                     }
                 }
             }
@@ -156,6 +188,15 @@ namespace GameWorldClassesUpgrade
             }
             ResultMap();
         }
+        public void PaintShot(Shot shot)
+        {
+            char[,] temp = new char[_mapDefault.GetLength(0), _mapDefault.GetLength(1)];
+            for (int i = 0; i < temp.Length; i++)
+            {
+
+            }
+
+        }
         
         public void PaintMap(char[,] custom_Map)
         {
@@ -185,6 +226,8 @@ namespace GameWorldClassesUpgrade
             Console.Write(bar);
             Console.BackgroundColor = defaultColor;
             bar = "";
+            if(hpValue<=0)
+            { hpValue = 0; }
             for (int i = hpValue; i < maxHpValue; i++)
             {
                 bar += " ";

@@ -16,6 +16,7 @@ namespace GameWorld_classes
 
         public int Range { get; set; }
         public char BulletModel = '*';
+        public List<char> BulletWeaponModels = new List<char> ();
         public void Reload()
         {
             Console.WriteLine("перезарядка");
@@ -40,7 +41,13 @@ namespace GameWorld_classes
             Price = price;
 
         }
-
+        public void ConvertModelToDmg()
+        {
+            if (BulletModel == '*')
+                Dmg = 20;
+            if (BulletModel != '.')
+                Dmg= 10;
+        }
 
     }
 
